@@ -1,0 +1,13 @@
+mobileAddr: "192.168.4.43"    #手机的wiff地址
+port: "5555"                  #手机tcpip的端口，一般不用修改，除非被占用
+passwd: 2580                  #手机锁屏密码
+
+onDuty: "09:30"               #上班时间
+offDuty: "21:01"              #下班时间
+
+onDuty_polling_startTime: "08:50"     #上班开始轮询时间，直到上班时间到或者成功打卡就进入下次打卡休眠
+offDuty_poling_endTime: "21:30"       #下班结束轮询时间，从下班时间直到该时间到或者成功打卡就进入下次打卡休眠
+
+interval: 60                  #轮询间隔（秒）
+
+apkName: "com.alibaba.android.rimet"    #不需要修改
