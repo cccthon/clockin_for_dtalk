@@ -57,7 +57,7 @@ def auto_clockin(dev):
     dev.stop_app(conf.apkName)
     time.sleep(0.3)
     dev.start_app(conf.apkName)
-    time.sleep(6)
+    time.sleep(7)
     dev.home()
     dev.shell("input keyevent KEYCODE_POWER")
     logger.info("clockin success.")
@@ -95,7 +95,7 @@ def job_clockin():
 
 
 if __name__ == '__main__':
-
+    logger.info("connect status: " + str(connect_byWiff()))
     schedule.every().day.at(conf.onDuty_polling_startTime).do(job_clockin)
     schedule.every().day.at(conf.offDuty).do(job_clockin)
     # print(on_off_duty())

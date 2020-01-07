@@ -1,4 +1,4 @@
-mobileAddr: "192.168.4.43"    #手机的wiff地址
+mobileAddr: "192.168.20.78"    #手机的wiff地址
 port: "5555"                  #手机tcpip的端口，一般不用修改，除非被占用
 passwd: 2580                  #手机锁屏密码
 

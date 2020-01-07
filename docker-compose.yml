@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+  python:
+    container_name: dingtalk_clockin
+    restart: always
+    image: clockin:latest
+    volumes:
+      - .:/opt
