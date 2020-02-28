@@ -22,7 +22,7 @@ console.setFormatter(formatter)
 logger.addHandler(handler)
 logger.addHandler(console)
 
-conf = Dict(yaml.load(open("clockin.yml","r",encoding='utf-8')))
+conf = Dict(yaml.safe_load(open("clockin.yml","r",encoding='utf-8')))
 
 """
 adb shell ps| grep "com.alibaba.android.rimet"
@@ -32,7 +32,6 @@ adb shell am force-stop "com.alibaba.android.rimet"
 
 def sendMsg_wx(msg=''):
     wechat = Bot(console_qr=2,cache_path="botoo.pkl")
-    # print(help(wechat))
     wechat.file_helper.send(msg)
 
 def connect_byWiff(mobileAddr=conf.mobileAddr,port=conf.port):
@@ -53,11 +52,12 @@ def auto_clockin(dev):
     # devices = device()
     # print("adb devices: ", devices.list_app())
     # install(apkName)
+    time.sleep(4)
     dev.home()
     dev.stop_app(conf.apkName)
     time.sleep(0.3)
     dev.start_app(conf.apkName)
-    time.sleep(7)
+    time.sleep(8)
     dev.home()
     dev.shell("input keyevent KEYCODE_POWER")
     logger.info("clockin success.")
@@ -108,4 +108,10 @@ if __name__ == '__main__':
         schedule.run_pending()
         time.sleep(60)   
     
-    # job_clockin()
+    ###################
+    #### debug ##########
+    # dev = connect_byWiff()
+    # unlock_byNum(dev)
+    # auto_clockin(dev)
+
+
